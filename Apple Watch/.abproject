@@ -2,10 +2,10 @@
   "ProjectName": "Apple Watch",
   "ProjectGuid": "ff52b054-51b1-44a4-9e12-a112ce6875c0",
   "projectVersion": 1,
-  "AppIdentifier": "com.telerik.AppleWatch",
+  "AppIdentifier": "com.telerik.plugindemo.applewatch",
   "DisplayName": "Apple Watch",
-  "Author": "",
-  "Description": "Apple Watch",
+  "Author": "Telerik",
+  "Description": "Apple Watch plugin demo",
   "BundleVersion": "1.0",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
@@ -14,7 +14,7 @@
   ],
   "iOSBackgroundMode": [],
   "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
-  "FrameworkVersion": "3.7.0",
+  "FrameworkVersion": "4.0.0",
   "AndroidPermissions": [
     "android.permission.INTERNET"
   ],
@@ -22,7 +22,7 @@
     "Portrait",
     "Landscape"
   ],
-  "AndroidHardwareAcceleration": "false",
+  "AndroidHardwareAcceleration": "True",
   "iOSStatusBarStyle": "Default",
   "Framework": "Cordova",
   "WP8TileTitle": "",
@@ -41,5 +41,15 @@
     "ID_RESOLUTION_WVGA",
     "ID_RESOLUTION_WXGA",
     "ID_RESOLUTION_HD720P"
-  ]
+  ],
+  "CorePlugins": [
+    "cordova-plugin-applewatch@0.5.0",
+    "cordova-plugin-console",
+    "cordova-plugin-device",
+    "cordova-plugin-dialogs",
+    "cordova-plugin-network-information",
+    "cordova-plugin-splashscreen",
+    "cordova-plugin-statusbar"
+  ],
+  "iOSDeploymentTarget": "8.2"
 }
