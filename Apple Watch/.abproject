@@ -22,7 +22,7 @@
     "Portrait",
     "Landscape"
   ],
-  "AndroidHardwareAcceleration": "True",
+  "AndroidHardwareAcceleration": "true",
   "iOSStatusBarStyle": "Default",
   "Framework": "Cordova",
   "WP8TileTitle": "",
@@ -43,13 +43,14 @@
     "ID_RESOLUTION_HD720P"
   ],
   "CorePlugins": [
-    "cordova-plugin-applewatch@0.5.0",
     "cordova-plugin-console",
     "cordova-plugin-device",
     "cordova-plugin-dialogs",
     "cordova-plugin-network-information",
     "cordova-plugin-splashscreen",
-    "cordova-plugin-statusbar"
+    "cordova-plugin-statusbar",
+    "cordova-plugin-whitelist",
+    "cordova-plugin-applewatch@0.5.0"
   ],
   "iOSDeploymentTarget": "8.2"
 }

@@ -1,1 +1,13 @@
-{}
+{
+  "CordovaPluginVariables": {},
+  "CorePlugins": [
+    "cordova-plugin-console",
+    "cordova-plugin-device",
+    "cordova-plugin-dialogs",
+    "cordova-plugin-network-information",
+    "cordova-plugin-splashscreen",
+    "cordova-plugin-statusbar",
+    "cordova-plugin-whitelist",
+    "cordova-plugin-applewatch@0.5.0"
+  ]
+}
