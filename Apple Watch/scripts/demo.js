@@ -32,7 +32,7 @@ function initAppleWatch() {
     alert("err: " + JSON.stringify(err));
   });
 
-//  applewatch.callback.onLoadAppMainRequest = onAppRequestsUpdate;
+  applewatch.callback.onLoadAppMainRequest = mainPageWithSliderAndContextMenu;
 //  applewatch.callback.onLoadAppDetailRequest = onAppDetailPageRequestsUpdate;
   applewatch.callback.onLoadGlanceRequest = eval(localStorage.getItem('currentGlance'));
 //  applewatch.callback.onLocalNotification = onNotificationReceived;
@@ -48,7 +48,7 @@ function initAppleWatch() {
 
     DemoViewModel = kendo.data.ObservableObject.extend({
 
-      // these glance functions are defined in glances.js
+      // these glance functions are defined in scripts/watchappglances.js
       glanceWithMap: function() {
         saveCurrentGlance('glanceWithMap');
         glanceWithMap();
@@ -57,6 +57,15 @@ function initAppleWatch() {
       glanceWithTable: function() {
         saveCurrentGlance('glanceWithTable');
         glanceWithTable();
+      },
+
+      // these page functions are defined in scripts/watchapppages.js
+      mainPageWithSliderAndContextMenu: function() {
+        mainPageWithSliderAndContextMenu();
+      },
+
+      mainPageWithSwitches: function() {
+        mainPageWithSwitches();
       },
 
       checkSimulator: function() {

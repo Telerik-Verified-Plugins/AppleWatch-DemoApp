@@ -32,6 +32,10 @@ h3.hassubtitle {
     margin-bottom: 0.8rem;
 }
 
+#feedback {
+    margin: 1rem;
+}
+
 .smaller {
     font-size: 0.8em;
 }
