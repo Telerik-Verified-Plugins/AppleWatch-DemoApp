@@ -10,7 +10,16 @@
     <script src="kendo/js/jquery.min.js"></script>
     <script src="kendo/js/kendo.mobile.min.js"></script>
 
-    <script src="scripts/demo.js"></script>
+  <script>
+  window.onerror = function(a,b,c) {
+    alert(a);
+    alert(c);
+  }
+  </script>
+    <script src="scripts/glances.js"></script>
+    <script src="scripts/notifications.js"></script>
+
+  	<script src="scripts/demo.js"></script>
     <script src="scripts/app.js"></script>
 </head>
 <body>
@@ -45,18 +54,25 @@
         data-model="app.demoService.viewModel">
 
         <div class="demo">
-            <h3 class="hassubtitle">Glance</h3>
+            <h3 class="hassubtitle">Glances</h3>
             <div class="subtitle">
-                TODO..
+              A glance is a read-only page which is shown after swiping up on your Watch,
+              but only in case you've enabled glances in the stock 'Apple Watch' app.
+              These buttons push differt kinds of glances to your watch, our default is 'Map'.
             </div>
-            <button data-role="button" class="button" data-bind="click: glance">Glance</button>
+            <button data-role="button" class="button" data-bind="click: glanceWithMap">Map</button>
+            <button data-role="button" class="button" data-bind="click: glanceWithTable">Table</button>
 
             <h3 class="hassubtitle">App</h3>
             <div class="subtitle">
                 TODO..
             </div>
-          
-          <!-- TODO: local notifications -->
+
+            <!-- TODO: local notification buttons -->
+
+            <div>Feedback from Watch App:</div>
+				    <div style="font-weight:bold" id="feedback"></div>
+    				<img id="image" src="" style="max-width: 150px"/>
 				</div>
     </div>
 
