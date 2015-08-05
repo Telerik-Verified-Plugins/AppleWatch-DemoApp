@@ -30,9 +30,6 @@ function onVoted(result) {
 }
 
 var detailPageLabel = null;
-function onRefreshActionButtonPressed() {
-  mainPageWithActionButton();
-}
 
 function onTableRowSelected(index) {
   feedback('Selected table row index: ' + index);
@@ -49,43 +46,43 @@ function onPushNavigation() {
 
 // page functions
 function mainPageWithSliderAndContextMenu() {
-    var payload = {
-      'title': 'Demo 1', // optional
-      'label' : {
-        'value' : ' ' // this pushes the remainder of the page down a bit
-      },
-      'label2': { // optional, max 2 lines
-        'value': 'Try -/+ and the Force Touch context menu',
-        'color': '#FFFFFF',
-        'font': {
-          'size': 11 // default 12
-        }
-      },
-      'slider': {
-        'steps': 20, // of 100, so each step is 5 in this case
-        'value': sliderVal, // of 100, so this is a percentage
-        'color': '#CC0000',
-        'callback': 'onSliderChanged',
-        'hideValue': false // default false, allows to now show the value below the slider
-      },
-      // triggered by force touch
-      'contextMenu': {
-        // configure up to 4 items (any more will be ignored)
-        'items': [
-          {
-            'title': 'Play',
-            'iconNamed': 'play', // https://developer.apple.com/library/ios/documentation/WatchKit/Reference/WKInterfaceController_class/index.html#//apple_ref/doc/c_ref/WKMenuItemIcon
-            'callback': 'onContextMenuPlay'
-          },
-          {
-            'title': 'Resume',
-            'iconNamed': 'resume',
-            'callback': 'onContextMenuResume'
-          }
-        ]
+  var payload = {
+    'title': 'Demo 1', // optional
+    'label' : {
+      'value' : ' ' // this pushes the remainder of the page down a bit
+    },
+    'label2': { // optional, max 2 lines
+      'value': 'Try -/+ and the Force Touch context menu',
+      'color': '#FFFFFF',
+      'font': {
+        'size': 11 // default 12
       }
-    };
-    applewatch.loadAppMain(payload);
+    },
+    'slider': {
+      'steps': 20, // of 100, so each step is 5 in this case
+      'value': sliderVal, // of 100, so this is a percentage
+      'color': '#CC0000',
+      'callback': 'onSliderChanged',
+      'hideValue': false // default false, allows to now show the value below the slider
+    },
+    // triggered by force touch
+    'contextMenu': {
+      // configure up to 4 items (any more will be ignored)
+      'items': [
+        {
+          'title': 'Play',
+          'iconNamed': 'play', // https://developer.apple.com/library/ios/documentation/WatchKit/Reference/WKInterfaceController_class/index.html#//apple_ref/doc/c_ref/WKMenuItemIcon
+          'callback': 'onContextMenuPlay'
+        },
+        {
+          'title': 'Resume',
+          'iconNamed': 'resume',
+          'callback': 'onContextMenuResume'
+        }
+      ]
+    }
+  };
+  applewatch.loadAppMain(payload);
 };
 
 function mainPageWithSwitches() {
@@ -166,7 +163,7 @@ function mainPageWithActionButton() {
         }
       },
       'color': '#FFFFFF',
-      'callback': 'onRefreshActionButtonPressed'
+      'callback': 'mainPageWithActionButton' // load ourself :)
     }
   };
   applewatch.loadAppMain(payload);
