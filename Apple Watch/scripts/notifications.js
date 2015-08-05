@@ -6,7 +6,7 @@ function onNotificationRegistrationSuccess(msg) {
     "title": "Short!",
     "category": "default",
     "body": "Shown in the long-look interface to provide more detail",
-    "badge": 1
+    "badge": 0
   };
 
   setTimeout(function() {

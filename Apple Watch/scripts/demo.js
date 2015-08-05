@@ -6,9 +6,22 @@ function saveCurrentGlance(what) {
   localStorage.setItem('currentGlance', what);
 }
 
-// configure our default glance
-if (localStorage.getItem('currentGlance') == null) {
-  saveCurrentGlance('glanceWithMap');
+function saveCurrentAppPage(what) {
+  localStorage.setItem('currentAppPage', what);
+}
+
+function showMostRecentlySelectedAppPage() {
+	if (localStorage.getItem('currentAppPage') == null) {
+  	saveCurrentAppPage('mainPageWithSliderAndContextMenu');
+	}
+	(eval(localStorage.getItem('currentAppPage')))();
+}
+
+function showMostRecentlySelectedGlance() {
+	if (localStorage.getItem('currentGlance') == null) {
+  	saveCurrentGlance('glanceWithMap');
+	}
+	(eval(localStorage.getItem('currentGlance')))();
 }
 
 document.addEventListener('deviceready', initAppleWatch, false);
@@ -32,9 +45,9 @@ function initAppleWatch() {
     alert("err: " + JSON.stringify(err));
   });
 
-  applewatch.callback.onLoadAppMainRequest = mainPageWithSliderAndContextMenu;
-//  applewatch.callback.onLoadAppDetailRequest = onAppDetailPageRequestsUpdate;
-  applewatch.callback.onLoadGlanceRequest = eval(localStorage.getItem('currentGlance'));
+  applewatch.callback.onLoadGlanceRequest = showMostRecentlySelectedGlance;
+  applewatch.callback.onLoadAppMainRequest = showMostRecentlySelectedAppPage;
+  applewatch.callback.onLoadAppDetailRequest = onAppDetailPageRequestsUpdate;
 //  applewatch.callback.onLocalNotification = onNotificationReceived;
 //  applewatch.callback.onRemoteNotification = onNotificationReceived;
   applewatch.callback.onError = function (message) {
@@ -59,26 +72,42 @@ function initAppleWatch() {
         glanceWithTable();
       },
 
+      glanceWithLabelsAndImage: function() {
+        saveCurrentGlance('glanceWithLabelsAndImage');
+        glanceWithLabelsAndImage();
+      },
+
       // these page functions are defined in scripts/watchapppages.js
       mainPageWithSliderAndContextMenu: function() {
+        saveCurrentAppPage('mainPageWithSliderAndContextMenu');
         mainPageWithSliderAndContextMenu();
       },
 
       mainPageWithSwitches: function() {
+        saveCurrentAppPage('mainPageWithSwitches');
         mainPageWithSwitches();
       },
+      
+      mainPageWithUserInput: function() {
+        saveCurrentAppPage('mainPageWithUserInput');
+        mainPageWithUserInput();
+      },
 
-      checkSimulator: function() {
-        if (window.navigator.simulator === true) {
-          alert('This plugin is not available in the simulator.');
-          return true;
-        } else if (window.applewatch === undefined) {
-          alert('Plugin not found. Maybe you are running in AppBuilder Companion app which currently does not support this plugin.');
-          return true;
-        } else {
-          return false;
-        }
-      }
+      mainPageWithActionButton: function() {
+        saveCurrentAppPage('mainPageWithActionButton');
+        mainPageWithActionButton();
+      },
+
+      mainPageWithTable: function() {
+        saveCurrentAppPage('mainPageWithTable');
+        mainPageWithTable();
+      },
+
+      mainPageWithNavigation: function() {
+        saveCurrentAppPage('mainPageWithNavigation');
+        mainPageWithNavigation();
+      },      
+
     });
 
     app.demoService = {

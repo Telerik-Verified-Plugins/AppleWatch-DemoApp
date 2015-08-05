@@ -10,13 +10,13 @@
     <script src="kendo/js/jquery.min.js"></script>
     <script src="kendo/js/kendo.mobile.min.js"></script>
 
-  <script>
-  window.onerror = function(a,b,c) {
-    alert(a);
-    alert(c);
-  }
-  </script>
-    <script src="scripts/watchappglances.js"></script>
+	  <script>
+		  window.onerror = function(a,b,c) {
+    		alert(a + ", " + b + ", " + c);
+ 		  }
+ 		</script>
+
+  	<script src="scripts/watchappglances.js"></script>
     <script src="scripts/watchapppages.js"></script>
     <script src="scripts/notifications.js"></script>
 
@@ -40,7 +40,8 @@
         </div>
         <h3>Apple Watch Plugin Demo</h3>
         <p>
-            The Apple Watch plugin allows you to..
+            The Apple Watch plugin allows you to add an Apple Watch extension to your Phone app.
+	          The UI is entirely constructed with JavaScript, so you don't need to touch native code at all.
         </p>
         <p>
             Custom plugins don't work in the simulator and the AppBuilder companion app,
@@ -55,27 +56,32 @@
         data-model="app.demoService.viewModel">
 
         <div class="demo">
+          	<h3 class="hassubtitle">App pages</h3>
+            <div class="subtitle">
+              A page is shown when the user taps a glance, or launches the app itself on the Watch.
+            </div>
+            <button data-role="button" class="button" data-bind="click: mainPageWithSliderAndContextMenu">Slider and Force Touch menu</button>
+            <button data-role="button" class="button" data-bind="click: mainPageWithSwitches">Switches</button>
+            <button data-role="button" class="button" data-bind="click: mainPageWithUserInput">User input</button>
+            <button data-role="button" class="button" data-bind="click: mainPageWithActionButton">Action button</button>
+            <button data-role="button" class="button" data-bind="click: mainPageWithTable">Table</button>
+            <button data-role="button" class="button" data-bind="click: mainPageWithNavigation">Navigation</button>
+
+          	<h3 class="hassubtitle">Feedback from Watch</h3>
+				    <div class="subtitle" id="feedback">Waiting for interaction with the Watch App...</div>
+    				<img id="image" src="" style="max-width: 120px"/>
+
             <h3 class="hassubtitle">Glances</h3>
             <div class="subtitle">
               A glance is a read-only page which is shown after swiping up on your Watch,
               but only in case you've enabled glances in the stock 'Apple Watch' app.
-              These buttons push differt kinds of glances to your watch, our default is 'Map'.
             </div>
             <button data-role="button" class="button" data-bind="click: glanceWithMap">Map</button>
             <button data-role="button" class="button" data-bind="click: glanceWithTable">Table</button>
-
-            <h3 class="hassubtitle">App pages</h3>
-            <div class="subtitle">
-              A page is shown when the user taps a glance, or launches the app itself on the Watch.
-            </div>
-            <button data-role="button" class="button" data-bind="click: mainPageWithSliderAndContextMenu">Slider, Force Touch menu</button>
-            <button data-role="button" class="button" data-bind="click: mainPageWithSwitches">Switches</button>
+            <button data-role="button" class="button" data-bind="click: glanceWithLabelsAndImage">Labels and image</button>
 
             <!-- TODO: local notification buttons -->
 
-            <h3 class="hassubtitle">Feedback from Watch</h3>
-				    <div id="feedback"></div>
-    				<img id="image" src="" style="max-width: 150px"/>
 				</div>
     </div>
 
