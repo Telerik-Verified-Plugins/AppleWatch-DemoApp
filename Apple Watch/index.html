@@ -10,12 +10,6 @@
     <script src="kendo/js/jquery.min.js"></script>
     <script src="kendo/js/kendo.mobile.min.js"></script>
 
-	  <script>
-		  window.onerror = function(a,b,c) {
-    		alert(a + ", " + b + ", " + c);
- 		  }
- 		</script>
-
   	<script src="scripts/watchappglances.js"></script>
     <script src="scripts/watchapppages.js"></script>
     <script src="scripts/notifications.js"></script>
@@ -80,7 +74,14 @@
             <button data-role="button" class="button" data-bind="click: glanceWithTable">Table</button>
             <button data-role="button" class="button" data-bind="click: glanceWithLabelsAndImage">Labels and image</button>
 
-            <!-- TODO: local notification buttons -->
+            <!--h3 class="hassubtitle">Local Notifications</h3>
+            <div class="subtitle">
+              You Watch can display remote and local notifications.
+              This plugin can trigger local notifications.
+              Here's an example of one which will fire 10 sec after your press the button.
+            </div>
+            <button data-role="button" class="button" data-bind="click: registerForNotifications">Register for notifications</button>
+            <button data-role="button" class="button" data-bind="click: scheduleLocalNotification">Schedule local notification</button-->
 
 				</div>
     </div>

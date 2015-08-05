@@ -35,15 +35,14 @@ function initAppleWatch() {
     return;
   }
 
-  applewatch.init(function () {
-    // register for notifications
-    applewatch.registerNotifications(onNotificationRegistrationSuccess, onNotificationRegistrationError);
-  },
-  function (err) {
-    // an error occurred
-    alert("watch err!");
-    alert("err: " + JSON.stringify(err));
-  });
+  applewatch.init(
+    function () {
+      console.log("AppleWatch plugin init success");
+    },
+	  function (err) {
+	    alert("watch init error: " + JSON.stringify(err));
+  	}
+  );
 
   applewatch.callback.onLoadGlanceRequest = showMostRecentlySelectedGlance;
   applewatch.callback.onLoadAppMainRequest = showMostRecentlySelectedAppPage;
@@ -106,8 +105,27 @@ function initAppleWatch() {
       mainPageWithNavigation: function() {
         saveCurrentAppPage('mainPageWithNavigation');
         mainPageWithNavigation();
-      },      
+      },
+      
+      // the notification functions are defined in scripts/notifications.js
+      registerForNotifications: function() {
+        // register for notifications
+        applewatch.registerNotifications(onNotificationRegistrationSuccess, onNotificationRegistrationError);
+      },
 
+      // note that registerForNotifications should have succeeded at this point
+      scheduleLocalNotification: function() {
+        var payload = {
+          "title": "Short!",
+          "category": "default",
+          "body": "Shown in the long-look  interface to provide more detail",
+          "badge": 0
+        };
+
+//        setTimeout(function() {
+          applewatch.sendNotification(onNotificationSendSuccess, onNotificationSendError, payload);
+//        }, 10000);
+    	}
     });
 
     app.demoService = {

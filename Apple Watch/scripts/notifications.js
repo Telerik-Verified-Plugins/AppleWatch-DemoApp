@@ -1,17 +1,5 @@
 function onNotificationRegistrationSuccess(msg) {
-  console.log("noti reg ok: " + msg);
-
-  //we can now send a notification
-  var payload = {
-    "title": "Short!",
-    "category": "default",
-    "body": "Shown in the long-look interface to provide more detail",
-    "badge": 0
-  };
-
-  setTimeout(function() {
-    applewatch.sendNotification(onNotificationSendSuccess, onNotificationSendError, payload);
-  }, 8000);
+  alert("successfully registered for notifications: " + msg);
 }
 
 function onNotificationRegistrationError(msg) {
