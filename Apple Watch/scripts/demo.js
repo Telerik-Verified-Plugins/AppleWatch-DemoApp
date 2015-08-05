@@ -12,7 +12,7 @@ function initAppleWatch() {
 
 //  applewatch.callback.onLoadAppMainRequest = onAppRequestsUpdate;
 //  applewatch.callback.onLoadAppDetailRequest = onAppDetailPageRequestsUpdate;
-//  applewatch.callback.onLoadGlanceRequest = onGlanceRequestsUpdate;
+  applewatch.callback.onLoadGlanceRequest = onGlanceRequestsUpdate;
 //  applewatch.callback.onLocalNotification = onNotificationReceived;
 //  applewatch.callback.onRemoteNotification = onNotificationReceived;
   applewatch.callback.onError = function (message) {
@@ -20,6 +20,28 @@ function initAppleWatch() {
   };
 }
 
+function onGlanceRequestsUpdate() {
+	var payload = {
+    'label': {'value': 'Here\'s a map of NL', 'color': '#FFFFFF'},
+    'map': {
+      'center': {
+        // Eddy's home
+        'lat': 52.1851552,
+        'lng': 5.3996181
+      },
+      // Entire Netherlands
+      'zoom': 0.55, // 0.001 is about streetlevel, 4 fits the entire Netherlands
+      'annotations': [ // up to 5 annotations (custom pins), any more are ignored (play with the zoom value to make them all fit)
+        {
+          'pinColor': 'green',
+          'lat': 52.1851,
+          'lng': 5.3996
+        }
+      ]
+    }
+  };
+  applewatch.loadGlance(payload);
+}
 
 (function (global) {
     var DemoViewModel,
@@ -29,27 +51,7 @@ function initAppleWatch() {
 
         glance: function () {
             if (!this.checkSimulator()) {
-    var payload = {
-      'label': {'value': 'Here\'s a map of NL', 'color': '#FFFFFF'},
-      'map': {
-        'center': {
-          // Eddy's home
-          'lat': 52.1851552,
-          'lng': 5.3996181
-        },
-        // Entire Netherlands
-        'zoom': 3.55, // 0.001 is about streetlevel, 4 fits the entire Netherlands
-        'annotations': [ // up to 5 annotations (custom pins), any more are ignored (play with the zoom value to make them all fit)
-          {
-            'pinColor': 'green',
-            'lat': 52.1851,
-            'lng': 5.3996
-          }
-        ]
-      }
-    };
-    applewatch.loadGlance(payload);
-
+              onGlanceRequestsUpdate();
             }
         },
 
