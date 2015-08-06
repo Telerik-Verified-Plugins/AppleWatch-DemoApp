@@ -248,7 +248,7 @@ function mainPageWithNavigation() {
       'color': '#FFFFFF'
     },
     'pushNavButton': {
-      'backTitle': 'baaack',
+//      'backTitle': 'baaack',
       'title': {
         'value': 'Push nav'
       },
@@ -257,7 +257,7 @@ function mainPageWithNavigation() {
       'alpha': 1 // default 1
     },
     'modalNavButton': {
-      'closeTitle': 'kloos',
+//      'closeTitle': 'kloos',
       'title': {
         'value': 'Modal nav'
       },
