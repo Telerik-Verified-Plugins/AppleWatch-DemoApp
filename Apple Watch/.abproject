@@ -50,7 +50,7 @@
     "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
     "cordova-plugin-whitelist",
-    "cordova-plugin-applewatch@0.5.0"
+    "cordova-plugin-applewatch@0.6.0"
   ],
   "iOSDeploymentTarget": "8.2"
 }
